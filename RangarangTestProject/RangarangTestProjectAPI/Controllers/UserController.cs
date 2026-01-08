@@ -101,7 +101,7 @@ namespace RangarangTestProjectAPI.Controllers
                 FirstName = requestBody.FirstName,
                 LastName = requestBody.LastName,
                 PasswordHash = requestBody.Password.ToHash(),
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
             };
             var result = await _UserRep.AddUserAsync(theUser);
@@ -115,7 +115,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
                 };
                 await _logRep.AddLogAsync(log);
@@ -154,7 +154,7 @@ namespace RangarangTestProjectAPI.Controllers
                 FirstName = requestBody.FirstName,
                 LastName = requestBody.LastName,
                 PasswordHash = theRow.Result.PasswordHash,
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
             };
             result = await _UserRep.EditUserAsync(theUser);
             if (result.Status)
@@ -168,7 +168,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
                 };
                 await _logRep.AddLogAsync(log);
@@ -199,7 +199,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
                 };
                 await _logRep.AddLogAsync(log);

@@ -94,7 +94,7 @@ namespace RangarangTestProjectAPI.Controllers
                             UpdateDate = DateTime.Now.ToShamsi(),
                             LogTime = DateTime.Now.ToShamsi(),
                             ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                         };
                         await _logRep.AddLogAsync(log);
                         #endregion
@@ -180,7 +180,7 @@ namespace RangarangTestProjectAPI.Controllers
                         UpdateDate = DateTime.Now.ToShamsi(),
                         LogTime = DateTime.Now.ToShamsi(),
                         ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                     };
                     await _logRep.AddLogAsync(log);
                     #endregion
@@ -247,7 +247,7 @@ namespace RangarangTestProjectAPI.Controllers
                     PasswordHash = signupRequestBody.Password.ToHash(),
                     CreateDate = DateTime.Now.ToShamsi(),
                     UpdateDate = DateTime.Now.ToShamsi(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                 };
             
                 result = await _userRep.AddUserAsync(user);
@@ -262,7 +262,7 @@ namespace RangarangTestProjectAPI.Controllers
                         UpdateDate = DateTime.Now.ToShamsi(),
                         LogTime = DateTime.Now.ToShamsi(),
                         ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                     };
                     await _logRep.AddLogAsync(log);
 
@@ -330,7 +330,7 @@ namespace RangarangTestProjectAPI.Controllers
                             UpdateDate = DateTime.Now.ToShamsi(),
                             LogTime = DateTime.Now.ToShamsi(),
                             ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                         };
                         await _logRep.AddLogAsync(log);
                         #endregion
@@ -416,7 +416,7 @@ namespace RangarangTestProjectAPI.Controllers
                                 UpdateDate = DateTime.Now.ToShamsi(),
                                 LogTime = DateTime.Now.ToShamsi(),
                                 ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                             };
                             await _logRep.AddLogAsync(log);
                             #endregion
@@ -494,7 +494,8 @@ namespace RangarangTestProjectAPI.Controllers
                         UpdateDate = DateTime.Now.ToShamsi(),
                         LogTime = DateTime.Now.ToShamsi(),
                         ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
+
                     };
                     await _logRep.AddLogAsync(log);
                     #endregion

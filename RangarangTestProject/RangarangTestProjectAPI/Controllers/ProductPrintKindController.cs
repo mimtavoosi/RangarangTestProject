@@ -98,7 +98,7 @@ namespace RangarangTestProjectAPI.Controllers
                 PrintKindId = requestBody.PrintKindId,
                 ProductId = requestBody.ProductId,
                 IsJeld = requestBody.IsJeld,
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                 
             };
             var result = await _ProductPrintKindRep.AddProductPrintKindAsync(ProductPrintKind);
@@ -112,7 +112,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
                     
                 };
                 await _logRep.AddLogAsync(log);
@@ -148,7 +148,7 @@ namespace RangarangTestProjectAPI.Controllers
                 PrintKindId = requestBody.PrintKindId,
                 ProductId = requestBody.ProductId,
                 IsJeld = requestBody.IsJeld,
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
             };
             result = await _ProductPrintKindRep.EditProductPrintKindAsync(ProductPrintKind);
@@ -163,7 +163,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
                 };
                 await _logRep.AddLogAsync(log);
@@ -194,7 +194,7 @@ namespace RangarangTestProjectAPI.Controllers
                     UpdateDate = DateTime.Now.ToShamsi(),
                     LogTime = DateTime.Now.ToShamsi(),
                     ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                    CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
                 };
                 await _logRep.AddLogAsync(log);

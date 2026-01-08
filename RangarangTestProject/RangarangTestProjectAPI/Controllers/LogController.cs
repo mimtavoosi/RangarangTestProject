@@ -92,7 +92,7 @@ namespace RangarangTestProjectAPI.Controllers
                 UpdateDate = DateTime.Now.ToShamsi(),
                 ActionName = requestBody.ActionName,
                 LogTime= requestBody.LogTime,
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
             };
             var result = await _LogRep.AddLogAsync(Log);
             if (result.Status)
@@ -124,7 +124,7 @@ namespace RangarangTestProjectAPI.Controllers
                 UpdateDate = DateTime.Now.ToShamsi(),
                 ActionName = requestBody.ActionName,
                 LogTime = requestBody.LogTime,
-                CreatorId = int.Parse(User?.FindFirst("userId")?.Value.ToString()),
+                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
 
             };
             result = await _LogRep.EditLogAsync(Log);
