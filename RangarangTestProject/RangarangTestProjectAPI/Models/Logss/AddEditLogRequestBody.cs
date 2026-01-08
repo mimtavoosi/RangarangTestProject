@@ -1,0 +1,17 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RangarangTestProjectAPI.Models.Log
+{
+    public class AddEditLogRequestBody
+    {
+        public int ID { get; set; } = 0;
+
+        [Display(Name = "نام اکشن")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public string ActionName { get; set; }
+
+        [Display(Name = "تاریخ لاگ")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public DateTime LogTime { get; set; }
+    }
+}
