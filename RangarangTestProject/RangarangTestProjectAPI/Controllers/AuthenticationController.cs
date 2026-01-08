@@ -94,7 +94,7 @@ namespace RangarangTestProjectAPI.Controllers
                             UpdateDate = DateTime.Now.ToShamsi(),
                             LogTime = DateTime.Now.ToShamsi(),
                             ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
+                            CreatorId = authenticateResult.Result.ID,
                         };
                         await _logRep.AddLogAsync(log);
                         #endregion
@@ -262,7 +262,7 @@ namespace RangarangTestProjectAPI.Controllers
                         UpdateDate = DateTime.Now.ToShamsi(),
                         LogTime = DateTime.Now.ToShamsi(),
                         ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                        CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
+                        CreatorId = result.ID,
                     };
                     await _logRep.AddLogAsync(log);
 
@@ -330,7 +330,7 @@ namespace RangarangTestProjectAPI.Controllers
                             UpdateDate = DateTime.Now.ToShamsi(),
                             LogTime = DateTime.Now.ToShamsi(),
                             ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                            CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
+                            CreatorId = user.Result.ID,
                         };
                         await _logRep.AddLogAsync(log);
                         #endregion
@@ -416,7 +416,7 @@ namespace RangarangTestProjectAPI.Controllers
                                 UpdateDate = DateTime.Now.ToShamsi(),
                                 LogTime = DateTime.Now.ToShamsi(),
                                 ActionName = this.ControllerContext.RouteData.Values["action"].ToString(),
-                                CreatorId = int.Parse(User?.FindFirst("userId")?.Value?.ToString() ?? "0"),
+                                CreatorId = user.Result.ID,
                             };
                             await _logRep.AddLogAsync(log);
                             #endregion

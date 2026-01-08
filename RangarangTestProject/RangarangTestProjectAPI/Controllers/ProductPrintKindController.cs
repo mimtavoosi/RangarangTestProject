@@ -17,7 +17,7 @@ namespace RangarangTestProjectAPI.Controllers
 {
     [Route("ProductPrintKind")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
 
 
